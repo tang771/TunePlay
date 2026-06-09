@@ -34,7 +34,3 @@ TunePlay/
 ├── stream-relay.js       # [流媒体中转/转发服务的 Node.js 脚本]
 ├── build.gradle.kts      # 项目全局构建配置
 └── settings.gradle.kts   # 模块与依赖源声明
-
-## 作者
-
-sunaet
