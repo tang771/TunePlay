@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_background">
+
+    <!-- Blurred album art background layer -->
+    <ImageView
+        android:id="@+id/iv_lyrics_blur_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Semi-transparent dark overlay on top of blur -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#E6080808"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ===== TOP BAR ===== -->
+    <ImageButton
+        android:id="@+id/btn_lyrics_back"
+        android:layout_width="@dimen/player_action_button_size"
+        android:layout_height="@dimen/player_action_button_size"
+        android:layout_marginStart="@dimen/grid_1"
+        android:layout_marginTop="@dimen/grid_1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Back"
+        android:src="@drawable/ic_arrow_back"
+        android:tint="@color/button_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ===== SONG INFO (moved above lyrics) ===== -->
+    <TextView
+        android:id="@+id/tv_lyrics_info_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_4"
+        android:layout_marginTop="@dimen/grid_1"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_player_title"
+        app:layout_constraintEnd_toStartOf="@+id/ll_lyrics_actions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_lyrics_back"
+        tools:text="Song Title" />
+
+    <TextView
+        android:id="@+id/tv_lyrics_info_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_4"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#CCCCCC"
+        android:textSize="@dimen/text_player_artist"
+        app:layout_constraintEnd_toStartOf="@+id/ll_lyrics_actions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lyrics_info_title"
+        tools:text="Artist Name" />
+
+    <LinearLayout
+        android:id="@+id/ll_lyrics_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/grid_4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lyrics_info_artist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_lyrics_info_title">
+
+        <ImageButton
+            android:id="@+id/btn_lyrics_like"
+            android:layout_width="@dimen/player_action_button_size"
+            android:layout_height="@dimen/player_action_button_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Like"
+            android:src="@drawable/ic_heart" />
+
+        <ImageButton
+            android:id="@+id/btn_lyrics_add"
+            android:layout_width="@dimen/player_action_button_size"
+            android:layout_height="@dimen/player_action_button_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Add to playlist"
+            android:src="@drawable/ic_add" />
+    </LinearLayout>
+
+    <!-- ===== SEEKBAR ===== -->
+    <SeekBar
+        android:id="@+id/seek_lyrics"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/seekbar_height"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
+        android:max="1000"
+        android:progressBackgroundTint="@color/seekbar_bg"
+        android:progressTint="@color/button_white"
+        android:splitTrack="false"
+        android:thumb="@drawable/thumb_seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lyrics_info_artist" />
+
+    <TextView
+        android:id="@+id/tv_lyrics_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:text="0:00"
+        android:textColor="@color/text_time"
+        android:textSize="@dimen/text_time"
+        app:layout_constraintStart_toStartOf="@+id/seek_lyrics"
+        app:layout_constraintTop_toBottomOf="@+id/seek_lyrics" />
+
+    <TextView
+        android:id="@+id/tv_lyrics_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:text="0:00"
+        android:textColor="@color/text_time"
+        android:textSize="@dimen/text_time"
+        app:layout_constraintEnd_toEndOf="@+id/seek_lyrics"
+        app:layout_constraintTop_toBottomOf="@+id/seek_lyrics" />
+
+    <!-- ===== LYRICS RECYCLERVIEW ===== -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_lyrics"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:layout_marginTop="@dimen/grid_2"
+        android:paddingTop="16dp"
+        android:paddingBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_lyrics_shuffle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lyrics_duration" />
+
+    <!-- Top fade gradient -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:background="@drawable/gradient_fade_top"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rv_lyrics" />
+
+    <!-- Bottom fade gradient -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:background="@drawable/gradient_fade_bottom"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="@id/rv_lyrics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_lyrics_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_lyrics_empty_art"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="Album Art"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_music_note" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_2"
+            android:text="@string/lyrics_instrumental"
+            android:textColor="@color/text_caption"
+            android:textSize="@dimen/text_body" />
+    </LinearLayout>
+
+    <!-- ===== CONTROLS ===== -->
+
+    <ImageButton
+        android:id="@+id/btn_lyrics_shuffle"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:layout_marginStart="@dimen/grid_4"
+        android:layout_marginTop="@dimen/grid_2"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Play Mode"
+        android:src="@drawable/ic_shuffle"
+        android:tint="@color/control_inactive"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lyrics_prev"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_lyrics" />
+
+    <ImageButton
+        android:id="@+id/btn_lyrics_prev"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Previous"
+        android:src="@android:drawable/ic_media_previous"
+        android:tint="@color/control_inactive"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_lyrics_shuffle"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lyrics_play_pause"
+        app:layout_constraintStart_toEndOf="@+id/btn_lyrics_shuffle"
+        app:layout_constraintTop_toTopOf="@+id/btn_lyrics_shuffle" />
+
+    <ImageButton
+        android:id="@+id/btn_lyrics_play_pause"
+        android:layout_width="@dimen/player_play_button_size"
+        android:layout_height="@dimen/player_play_button_size"
+        android:background="@drawable/bg_play_button"
+        android:contentDescription="Play/Pause"
+        android:elevation="4dp"
+        android:src="@android:drawable/ic_media_play"
+        android:tint="@color/on_button_white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_lyrics_shuffle"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lyrics_next"
+        app:layout_constraintStart_toEndOf="@+id/btn_lyrics_prev"
+        app:layout_constraintTop_toTopOf="@+id/btn_lyrics_shuffle" />
+
+    <ImageButton
+        android:id="@+id/btn_lyrics_next"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Next"
+        android:src="@android:drawable/ic_media_next"
+        android:tint="@color/control_inactive"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_lyrics_shuffle"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lyrics_repeat"
+        app:layout_constraintStart_toEndOf="@+id/btn_lyrics_play_pause"
+        app:layout_constraintTop_toTopOf="@+id/btn_lyrics_shuffle" />
+
+    <ImageButton
+        android:id="@+id/btn_lyrics_repeat"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:layout_marginEnd="@dimen/grid_4"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Playlist"
+        android:src="@drawable/ic_playlist"
+        android:tint="@color/control_inactive"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_lyrics_shuffle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_lyrics_next"
+        app:layout_constraintTop_toTopOf="@+id/btn_lyrics_shuffle" />
+
+    <!-- Bottom spacer -->
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/grid_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_lyrics_play_pause" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

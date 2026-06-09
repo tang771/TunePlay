@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_background"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".ui.player.PlayerFragment">
+
+    <!-- ===== TOP BAR ===== -->
+    <ImageButton
+        android:id="@+id/btn_player_back"
+        android:layout_width="@dimen/player_action_button_size"
+        android:layout_height="@dimen/player_action_button_size"
+        android:layout_marginStart="@dimen/grid_1"
+        android:layout_marginTop="@dimen/grid_1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Back"
+        android:src="@drawable/ic_chevron_down"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_playlist_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_title"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_player_back"
+        app:layout_constraintEnd_toStartOf="@+id/btn_player_more"
+        app:layout_constraintStart_toEndOf="@+id/btn_player_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_player_back"
+        tools:text="My Playlist" />
+
+    <ImageButton
+        android:id="@+id/btn_player_more"
+        android:layout_width="@dimen/player_action_button_size"
+        android:layout_height="@dimen/player_action_button_size"
+        android:layout_marginEnd="@dimen/grid_1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Menu"
+        android:src="@drawable/ic_more_vert"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_player_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_player_back" />
+
+    <!-- ===== STACKED DECK ===== -->
+    <com.example.tuneplay.ui.player.StackedDeckView
+        android:id="@+id/deck_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/grid_4"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="@dimen/grid_4"
+        app:layout_constraintBottom_toTopOf="@+id/view_lyrics_trigger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_player_back" />
+
+    <!-- ===== LYRICS TRIGGER: tap area between deck and song info ===== -->
+    <View
+        android:id="@+id/view_lyrics_trigger"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/grid_6"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deck_view" />
+
+    <TextView
+        android:id="@+id/tv_player_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_4"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_player_title"
+        app:layout_constraintEnd_toStartOf="@+id/ll_player_actions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_lyrics_trigger"
+        tools:text="Song Title" />
+
+    <TextView
+        android:id="@+id/tv_player_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_4"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#CCCCCC"
+        android:textSize="@dimen/text_player_artist"
+        app:layout_constraintEnd_toStartOf="@+id/ll_player_actions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_player_title"
+        tools:text="Artist Name" />
+
+    <LinearLayout
+        android:id="@+id/ll_player_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/grid_4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_player_artist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_player_title">
+
+        <ImageButton
+            android:id="@+id/btn_player_like"
+            android:layout_width="@dimen/player_action_button_size"
+            android:layout_height="@dimen/player_action_button_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Like"
+            android:src="@drawable/ic_heart" />
+
+        <ImageButton
+            android:id="@+id/btn_player_add"
+            android:layout_width="@dimen/player_action_button_size"
+            android:layout_height="@dimen/player_action_button_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Add to playlist"
+            android:src="@drawable/ic_add" />
+    </LinearLayout>
+
+    <!-- ===== SEEKBAR ===== -->
+    <SeekBar
+        android:id="@+id/seek_player"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/seekbar_height"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="16dp"
+        android:max="1000"
+        android:progressBackgroundTint="@color/seekbar_bg"
+        android:progressTint="@color/button_white"
+        android:splitTrack="false"
+        android:thumb="@drawable/thumb_seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_player_artist" />
+
+    <TextView
+        android:id="@+id/tv_player_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:text="0:00"
+        android:textColor="@color/text_time"
+        android:textSize="@dimen/text_time"
+        app:layout_constraintStart_toStartOf="@+id/seek_player"
+        app:layout_constraintTop_toBottomOf="@+id/seek_player" />
+
+    <!-- ===== CONTROLS ===== -->
+
+    <TextView
+        android:id="@+id/tv_player_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:text="0:00"
+        android:textColor="@color/text_time"
+        android:textSize="@dimen/text_time"
+        app:layout_constraintEnd_toEndOf="@+id/seek_player"
+        app:layout_constraintTop_toBottomOf="@+id/seek_player" />
+
+    <ImageButton
+        android:id="@+id/btn_player_shuffle"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:layout_marginStart="@dimen/grid_4"
+        android:layout_marginTop="@dimen/grid_4"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Shuffle"
+        android:src="@drawable/ic_shuffle"
+        android:tint="@color/control_inactive"
+        app:layout_constraintEnd_toStartOf="@+id/btn_player_prev"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_player_current_time" />
+
+    <ImageButton
+        android:id="@+id/btn_player_prev"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Previous"
+        android:src="@android:drawable/ic_media_previous"
+        android:tint="@color/control_inactive"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_player_shuffle"
+        app:layout_constraintEnd_toStartOf="@+id/btn_player_play_pause"
+        app:layout_constraintStart_toEndOf="@+id/btn_player_shuffle"
+        app:layout_constraintTop_toTopOf="@+id/btn_player_shuffle" />
+
+    <ImageButton
+        android:id="@+id/btn_player_play_pause"
+        android:layout_width="@dimen/player_play_button_size"
+        android:layout_height="@dimen/player_play_button_size"
+        android:background="@drawable/bg_play_button"
+        android:contentDescription="Play/Pause"
+        android:elevation="4dp"
+        android:src="@android:drawable/ic_media_play"
+        android:tint="@color/on_button_white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_player_shuffle"
+        app:layout_constraintEnd_toStartOf="@+id/btn_player_next"
+        app:layout_constraintStart_toEndOf="@+id/btn_player_prev"
+        app:layout_constraintTop_toTopOf="@+id/btn_player_shuffle" />
+
+    <ImageButton
+        android:id="@+id/btn_player_next"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Next"
+        android:src="@android:drawable/ic_media_next"
+        android:tint="@color/control_inactive"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_player_shuffle"
+        app:layout_constraintEnd_toStartOf="@+id/btn_player_repeat"
+        app:layout_constraintStart_toEndOf="@+id/btn_player_play_pause"
+        app:layout_constraintTop_toTopOf="@+id/btn_player_shuffle" />
+
+    <ImageButton
+        android:id="@+id/btn_player_repeat"
+        android:layout_width="@dimen/player_small_button_size"
+        android:layout_height="@dimen/player_small_button_size"
+        android:layout_marginEnd="@dimen/grid_4"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Playlist"
+        android:src="@drawable/ic_playlist"
+        android:tint="@color/control_inactive"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_player_shuffle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_player_next"
+        app:layout_constraintTop_toTopOf="@+id/btn_player_shuffle" />
+
+    <!-- Bottom spacer -->
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/grid_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_player_play_pause" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

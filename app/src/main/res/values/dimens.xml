@@ -1,0 +1,63 @@
+<resources>
+    <!-- Default screen margins -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 8dp grid system -->
+    <dimen name="grid_0">0dp</dimen>
+    <dimen name="grid_1">8dp</dimen>
+    <dimen name="grid_2">16dp</dimen>
+    <dimen name="grid_3">24dp</dimen>
+    <dimen name="grid_4">32dp</dimen>
+    <dimen name="grid_6">48dp</dimen>
+
+    <!-- Card and component dimensions -->
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="corner_small">8dp</dimen>
+    <dimen name="corner_card">12dp</dimen>
+    <dimen name="corner_cover">16dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_title">16sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="icon_small">24dp</dimen>
+    <dimen name="icon_medium">48dp</dimen>
+    <dimen name="icon_large">96dp</dimen>
+
+    <!-- Mini player -->
+    <dimen name="mini_player_height">64dp</dimen>
+    <dimen name="album_art_size">48dp</dimen>
+    <dimen name="mini_player_art_size">40dp</dimen>
+    <dimen name="mini_player_button">36dp</dimen>
+    <dimen name="mini_player_corner">16dp</dimen>
+    <dimen name="mini_player_elevation">4dp</dimen>
+    <dimen name="mini_player_seekbar_height">2dp</dimen>
+
+    <!-- Liquid glass corners -->
+    <dimen name="glass_corner_surface">16dp</dimen>
+    <dimen name="glass_corner_card">12dp</dimen>
+    <dimen name="glass_corner_search">28dp</dimen>
+
+    <!-- Now Playing redesign -->
+    <dimen name="player_album_art_size">260dp</dimen>
+    <dimen name="player_control_size">56dp</dimen>
+    <dimen name="player_play_button_size">56dp</dimen>
+    <dimen name="player_small_button_size">48dp</dimen>
+    <dimen name="text_player_title">22sp</dimen>
+    <dimen name="text_player_artist">13sp</dimen>
+    <dimen name="player_album_art_top_margin">40dp</dimen>
+    <dimen name="player_action_button_size">48dp</dimen>
+    <dimen name="player_small_icon">22dp</dimen>
+    <dimen name="text_lrc">14sp</dimen>
+
+    <dimen name="seekbar_height">3dp</dimen>
+    <dimen name="seekbar_thumb_default">8dp</dimen>
+    <dimen name="seekbar_thumb_pressed">12dp</dimen>
+    <dimen name="text_time">11sp</dimen>
+    <dimen name="player_cover_radius">20dp</dimen>
+    <dimen name="deck_peek_offset">80dp</dimen>
+</resources>

@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Black theme — light mode also dark -->
+    <style name="Theme.Tuneplay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Toolbar / primary: black -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Buttons / secondary: white -->
+        <item name="colorSecondary">@color/button_white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/on_button_white</item>
+
+        <!-- Background -->
+        <item name="android:colorBackground">@color/dark_background</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Transparent window for liquid glass (wallpaper blur) -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+</resources>

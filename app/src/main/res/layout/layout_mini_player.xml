@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/mini_player_height"
+    android:background="@drawable/bg_mini_player"
+    android:clickable="true"
+    android:focusable="true"
+    android:elevation="@dimen/mini_player_elevation"
+    android:paddingHorizontal="8dp"
+    tools:visibility="visible">
+
+    <ProgressBar
+        android:id="@+id/seek_mini"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mini_player_seekbar_height"
+        android:max="1000"
+        android:progressTint="@color/button_white"
+        android:progressBackgroundTint="@color/gray_outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fl_mini_album_art"
+        android:layout_width="@dimen/mini_player_art_size"
+        android:layout_height="@dimen/mini_player_art_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_mini_album_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Album Art"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_music_note" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mini_meta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ll_mini_controls"
+        app:layout_constraintStart_toEndOf="@+id/fl_mini_album_art"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_mini_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Song Title" />
+
+        <TextView
+            android:id="@+id/tv_mini_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            tools:text="Artist" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mini_controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_mini_skip_prev"
+            android:layout_width="@dimen/mini_player_button"
+            android:layout_height="@dimen/mini_player_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Skip Previous"
+            android:src="@android:drawable/ic_media_previous"
+            android:tint="@color/button_white" />
+
+        <ImageButton
+            android:id="@+id/btn_mini_play_pause"
+            android:layout_width="@dimen/mini_player_button"
+            android:layout_height="@dimen/mini_player_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Play/Pause"
+            android:src="@android:drawable/ic_media_play"
+            android:tint="@color/button_white" />
+
+        <ImageButton
+            android:id="@+id/btn_mini_skip_next"
+            android:layout_width="@dimen/mini_player_button"
+            android:layout_height="@dimen/mini_player_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Skip Next"
+            android:src="@android:drawable/ic_media_next"
+            android:tint="@color/button_white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

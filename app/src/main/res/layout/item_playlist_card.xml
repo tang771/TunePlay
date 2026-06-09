@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/grid_1">
+
+    <!-- Circular trash icon — revealed behind the card when swiped left -->
+    <FrameLayout
+        android:id="@+id/trash_container"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="18dp"
+        android:alpha="0"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="删除歌单">
+
+        <ImageView
+            android:id="@+id/iv_trash"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_trash_circle"
+            android:padding="10dp"
+            android:src="@drawable/ic_trash"
+            android:contentDescription="删除" />
+    </FrameLayout>
+
+    <!-- Card content — slides left on swipe -->
+    <LinearLayout
+        android:id="@+id/card_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_playlist_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/grid_2">
+
+        <ImageView
+            android:id="@+id/iv_playlist_cover"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="Cover"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_music_note"
+            tools:tint="@color/text_caption" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_2"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_playlist_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_title"
+                tools:text="Playlist Name" />
+
+            <TextView
+                android:id="@+id/tv_song_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/text_caption"
+                android:textSize="@dimen/text_caption"
+                tools:text="12 首" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

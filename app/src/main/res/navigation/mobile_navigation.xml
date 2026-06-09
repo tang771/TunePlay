@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.tuneplay.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_playlistSongsFragment"
+            app:destination="@id/navigation_playlist_songs" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_player"
+        android:name="com.example.tuneplay.ui.player.PlayerFragment"
+        android:label="@string/title_player"
+        tools:layout="@layout/fragment_player">
+        <action
+            android:id="@+id/action_playerFragment_to_lyricsFragment"
+            app:destination="@id/navigation_lyrics" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_lyrics"
+        android:name="com.example.tuneplay.ui.player.LyricsFragment"
+        android:label="@string/title_lyrics"
+        tools:layout="@layout/fragment_lyrics" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.tuneplay.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_playlistSongsFragment"
+            app:destination="@id/navigation_playlist_songs" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_playlist_songs"
+        android:name="com.example.tuneplay.ui.profile.PlaylistSongsFragment"
+        android:label="Playlist Songs"
+        tools:layout="@layout/fragment_playlist_songs">
+        <argument
+            android:name="playlist_id"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="playlist_name"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="song_ids"
+            app:argType="long[]"
+            app:nullable="true" />
+    </fragment>
+</navigation>

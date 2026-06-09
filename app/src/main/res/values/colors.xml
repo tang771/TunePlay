@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Black theme: background & surface -->
+    <color name="dark_background">#FF080808</color>
+    <color name="dark_surface">#FF1A1A1A</color>
+    <color name="dark_surface_variant">#FF2C2C2C</color>
+
+    <!-- White-on-black text hierarchy -->
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFCCCCCC</color>
+    <color name="text_caption">#FF999999</color>
+
+    <!-- Outline & divider -->
+    <color name="gray_outline">#FF444444</color>
+
+    <!-- Accent: white buttons -->
+    <color name="button_white">#FFFFFFFF</color>
+    <color name="on_button_white">#FF000000</color>
+
+    <!-- Liquid Glass tokens -->
+    <color name="glass_fill">#B3080808</color>
+    <color name="glass_highlight">#12FFFFFF</color>
+    <color name="glass_border">#26FFFFFF</color>
+
+    <!-- Like button -->
+    <color name="heart_active">#FFE53935</color>
+
+    <!-- Deck & SeekBar -->
+    <color name="deck_background">#FF080810</color>
+    <color name="seekbar_bg">#FF2A2A3A</color>
+    <color name="text_time">#FF999999</color>
+    <color name="control_inactive">#FFAAAAAA</color>
+
+    <!-- Navigation bar & mini player -->
+    <color name="nav_surface">#66080808</color>
+</resources>
