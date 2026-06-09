@@ -25,12 +25,15 @@
 
 ## 项目结构
 
-```
-app/
-gradle/
-build.gradle.kts
-settings.gradle.kts
-```
+```text
+TunePlay/
+├── app/                  # Android 应用主模块（页面、逻辑、数据）
+├── docs/                 # 项目设计文档与产品规格说明
+│   └── superpowers/      # 核心设计（如 player-redesign-design.md）
+├── gradle/               # Gradle 编译包与依赖管理
+├── stream-relay.js       # [流媒体中转/转发服务的 Node.js 脚本]
+├── build.gradle.kts      # 项目全局构建配置
+└── settings.gradle.kts   # 模块与依赖源声明
 
 ## 作者
 
